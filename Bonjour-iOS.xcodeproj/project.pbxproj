@@ -7,26 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF42256319EA4F67004C893D /* BonjourSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF42256019EA4F5E004C893D /* BonjourSDK.framework */; };
 		DFBFD7B819E8CCBC006BD016 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBFD7B719E8CCBC006BD016 /* main.m */; };
 		DFBFD7BB19E8CCBC006BD016 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBFD7BA19E8CCBC006BD016 /* AppDelegate.m */; };
 		DFBFD7BE19E8CCBC006BD016 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBFD7BD19E8CCBC006BD016 /* ViewController.m */; };
 		DFBFD7C119E8CCBC006BD016 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFBFD7BF19E8CCBC006BD016 /* Main.storyboard */; };
 		DFBFD7C319E8CCBC006BD016 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFBFD7C219E8CCBC006BD016 /* Images.xcassets */; };
 		DFBFD7C619E8CCBC006BD016 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFBFD7C419E8CCBC006BD016 /* LaunchScreen.xib */; };
-		DFBFD7D219E8CCBC006BD016 /* Bonjour_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBFD7D119E8CCBC006BD016 /* Bonjour_iOSTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DFBFD7CC19E8CCBC006BD016 /* PBXContainerItemProxy */ = {
+		DF42255F19EA4F5E004C893D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DFBFD7AA19E8CCBC006BD016 /* Project object */;
+			containerPortal = DF42255A19EA4F5E004C893D /* BonjourSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DF7D1C9C19EA466300EB0487;
+			remoteInfo = BonjourSDK_OSX;
+		};
+		DF42256119EA4F5E004C893D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF42255A19EA4F5E004C893D /* BonjourSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DFB9F59E19EA4CB4001F8A04;
+			remoteInfo = BonjourSDK_iOS;
+		};
+		DF42256419EA4F70004C893D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF42255A19EA4F5E004C893D /* BonjourSDK.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = DFBFD7B119E8CCBC006BD016;
-			remoteInfo = "Bonjour-iOS";
+			remoteGlobalIDString = DFB9F59D19EA4CB4001F8A04;
+			remoteInfo = BonjourSDK_iOS;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF42255A19EA4F5E004C893D /* BonjourSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BonjourSDK.xcodeproj; path = BonjourSDK/BonjourSDK.xcodeproj; sourceTree = "<group>"; };
 		DFBFD7B219E8CCBC006BD016 /* Bonjour-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bonjour-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFBFD7B619E8CCBC006BD016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFBFD7B719E8CCBC006BD016 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -37,9 +52,6 @@
 		DFBFD7C019E8CCBC006BD016 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DFBFD7C219E8CCBC006BD016 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DFBFD7C519E8CCBC006BD016 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		DFBFD7CB19E8CCBC006BD016 /* Bonjour-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bonjour-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DFBFD7D019E8CCBC006BD016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DFBFD7D119E8CCBC006BD016 /* Bonjour_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bonjour_iOSTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,24 +59,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DFBFD7C819E8CCBC006BD016 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				DF42256319EA4F67004C893D /* BonjourSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF42255B19EA4F5E004C893D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF42256019EA4F5E004C893D /* BonjourSDK.framework */,
+				DF42256219EA4F5E004C893D /* BonjourSDK.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		DFBFD7A919E8CCBC006BD016 = {
 			isa = PBXGroup;
 			children = (
+				DF42255A19EA4F5E004C893D /* BonjourSDK.xcodeproj */,
 				DFBFD7B419E8CCBC006BD016 /* Bonjour-iOS */,
-				DFBFD7CE19E8CCBC006BD016 /* Bonjour-iOSTests */,
 				DFBFD7B319E8CCBC006BD016 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				DFBFD7B219E8CCBC006BD016 /* Bonjour-iOS.app */,
-				DFBFD7CB19E8CCBC006BD016 /* Bonjour-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,23 +116,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DFBFD7CE19E8CCBC006BD016 /* Bonjour-iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				DFBFD7D119E8CCBC006BD016 /* Bonjour_iOSTests.m */,
-				DFBFD7CF19E8CCBC006BD016 /* Supporting Files */,
-			);
-			path = "Bonjour-iOSTests";
-			sourceTree = "<group>";
-		};
-		DFBFD7CF19E8CCBC006BD016 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DFBFD7D019E8CCBC006BD016 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -133,29 +130,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				DF42256519EA4F70004C893D /* PBXTargetDependency */,
 			);
 			name = "Bonjour-iOS";
 			productName = "Bonjour-iOS";
 			productReference = DFBFD7B219E8CCBC006BD016 /* Bonjour-iOS.app */;
 			productType = "com.apple.product-type.application";
-		};
-		DFBFD7CA19E8CCBC006BD016 /* Bonjour-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DFBFD7D819E8CCBC006BD016 /* Build configuration list for PBXNativeTarget "Bonjour-iOSTests" */;
-			buildPhases = (
-				DFBFD7C719E8CCBC006BD016 /* Sources */,
-				DFBFD7C819E8CCBC006BD016 /* Frameworks */,
-				DFBFD7C919E8CCBC006BD016 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DFBFD7CD19E8CCBC006BD016 /* PBXTargetDependency */,
-			);
-			name = "Bonjour-iOSTests";
-			productName = "Bonjour-iOSTests";
-			productReference = DFBFD7CB19E8CCBC006BD016 /* Bonjour-iOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -168,10 +148,6 @@
 				TargetAttributes = {
 					DFBFD7B119E8CCBC006BD016 = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					DFBFD7CA19E8CCBC006BD016 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = DFBFD7B119E8CCBC006BD016;
 					};
 				};
 			};
@@ -186,13 +162,35 @@
 			mainGroup = DFBFD7A919E8CCBC006BD016;
 			productRefGroup = DFBFD7B319E8CCBC006BD016 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DF42255B19EA4F5E004C893D /* Products */;
+					ProjectRef = DF42255A19EA4F5E004C893D /* BonjourSDK.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DFBFD7B119E8CCBC006BD016 /* Bonjour-iOS */,
-				DFBFD7CA19E8CCBC006BD016 /* Bonjour-iOSTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DF42256019EA4F5E004C893D /* BonjourSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BonjourSDK.framework;
+			remoteRef = DF42255F19EA4F5E004C893D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DF42256219EA4F5E004C893D /* BonjourSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BonjourSDK.framework;
+			remoteRef = DF42256119EA4F5E004C893D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DFBFD7B019E8CCBC006BD016 /* Resources */ = {
@@ -202,13 +200,6 @@
 				DFBFD7C119E8CCBC006BD016 /* Main.storyboard in Resources */,
 				DFBFD7C619E8CCBC006BD016 /* LaunchScreen.xib in Resources */,
 				DFBFD7C319E8CCBC006BD016 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DFBFD7C919E8CCBC006BD016 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,21 +216,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DFBFD7C719E8CCBC006BD016 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DFBFD7D219E8CCBC006BD016 /* Bonjour_iOSTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DFBFD7CD19E8CCBC006BD016 /* PBXTargetDependency */ = {
+		DF42256519EA4F70004C893D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DFBFD7B119E8CCBC006BD016 /* Bonjour-iOS */;
-			targetProxy = DFBFD7CC19E8CCBC006BD016 /* PBXContainerItemProxy */;
+			name = BonjourSDK_iOS;
+			targetProxy = DF42256419EA4F70004C893D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -359,40 +342,6 @@
 			};
 			name = Release;
 		};
-		DFBFD7D919E8CCBC006BD016 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Bonjour-iOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bonjour-iOS.app/Bonjour-iOS";
-			};
-			name = Debug;
-		};
-		DFBFD7DA19E8CCBC006BD016 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Bonjour-iOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bonjour-iOS.app/Bonjour-iOS";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -412,14 +361,7 @@
 				DFBFD7D719E8CCBC006BD016 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		DFBFD7D819E8CCBC006BD016 /* Build configuration list for PBXNativeTarget "Bonjour-iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DFBFD7D919E8CCBC006BD016 /* Debug */,
-				DFBFD7DA19E8CCBC006BD016 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

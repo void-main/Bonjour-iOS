@@ -1,0 +1,3 @@
+[submodule "BonjourSDK"]
+	path = BonjourSDK
+	url = git@github.com:void-main/BonjourSDK.git
