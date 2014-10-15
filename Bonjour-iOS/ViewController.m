@@ -71,9 +71,12 @@
     
     NSNetService *service = [self.serviceArray objectAtIndex:indexPath.row];
     
-    cell.hostnameLabel.text = service.hostName;
-    cell.serviceLabel.text = service.name;
-    cell.protocolLabel.text = service.type;
+    cell.hostnameLabel.text = service.name;
+    NSArray *array = [service.type componentsSeparatedByString:@"."];
+    cell.serviceLabel.text = array[0];
+    cell.protocolLabel.text = array[1];
+    
+    NSLog(@"%@, %@, %@", service.hostName, service.name, service.type);
     
     return cell;
 }
