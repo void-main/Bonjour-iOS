@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8FDA421E19EE8FA80010C916 /* DemoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA421D19EE8FA80010C916 /* DemoTableViewCell.m */; };
 		DF42256319EA4F67004C893D /* BonjourSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF42256019EA4F5E004C893D /* BonjourSDK.framework */; };
 		DFBFD7B819E8CCBC006BD016 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBFD7B719E8CCBC006BD016 /* main.m */; };
 		DFBFD7BB19E8CCBC006BD016 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBFD7BA19E8CCBC006BD016 /* AppDelegate.m */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8FDA421C19EE8FA80010C916 /* DemoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewCell.h; sourceTree = "<group>"; };
+		8FDA421D19EE8FA80010C916 /* DemoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewCell.m; sourceTree = "<group>"; };
 		DF42255A19EA4F5E004C893D /* BonjourSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BonjourSDK.xcodeproj; path = BonjourSDK/BonjourSDK.xcodeproj; sourceTree = "<group>"; };
 		DFBFD7B219E8CCBC006BD016 /* Bonjour-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bonjour-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFBFD7B619E8CCBC006BD016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				DFBFD7BA19E8CCBC006BD016 /* AppDelegate.m */,
 				DFBFD7BC19E8CCBC006BD016 /* ViewController.h */,
 				DFBFD7BD19E8CCBC006BD016 /* ViewController.m */,
+				8FDA421C19EE8FA80010C916 /* DemoTableViewCell.h */,
+				8FDA421D19EE8FA80010C916 /* DemoTableViewCell.m */,
 				DFBFD7BF19E8CCBC006BD016 /* Main.storyboard */,
 				DFBFD7C219E8CCBC006BD016 /* Images.xcassets */,
 				DFBFD7C419E8CCBC006BD016 /* LaunchScreen.xib */,
@@ -212,6 +217,7 @@
 			files = (
 				DFBFD7BE19E8CCBC006BD016 /* ViewController.m in Sources */,
 				DFBFD7BB19E8CCBC006BD016 /* AppDelegate.m in Sources */,
+				8FDA421E19EE8FA80010C916 /* DemoTableViewCell.m in Sources */,
 				DFBFD7B819E8CCBC006BD016 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
