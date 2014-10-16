@@ -12,14 +12,13 @@
 #define kServiceName @"share_editor"
 #define kServiceProtocol @"tcp"
 
-@interface ViewController () <BSBonjourBrowseDelegate, UITableViewDataSource>
+@interface ViewController () <BSBonjourClientDelegate, UITableViewDataSource>
 
 - (IBAction)searchBtnClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchBtn;
-@property (strong, nonatomic) BSBonjourManager *bonjourManager;
+@property (strong, nonatomic) BSBonjourClient *bonjourManager;
 @property (strong, nonatomic) UIActivityIndicatorView *indicatorView;
-@property (strong, nonatomic) NSMutableArray *serviceArray;
 
 @end
 
@@ -28,8 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.bonjourManager = [BSBonjourManager sharedManager];
-    self.serviceArray = [[NSMutableArray alloc] init];
+    self.bonjourManager = [[BSBonjourClient alloc] initWithServiceType:kServiceName transportProtocol:kServiceProtocol delegate:self];
     self.indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.indicatorView];
     self.tableView.rowHeight = 80.0f;
@@ -44,11 +42,11 @@
 
 - (IBAction)searchBtnClicked:(id)sender {
     if ([[(UIBarButtonItem *)sender title] isEqualToString:@"Search"]) {
-        [self.bonjourManager search:kServiceName transportProtocol:kServiceProtocol delegate:self];
+        [self.bonjourManager startSearching];
         [(UIBarButtonItem *)sender setTitle:@"Stop"];
         [self.indicatorView startAnimating];
     } else {
-        [self.bonjourManager stopSearch:kServiceName transportProtocol:kServiceProtocol];
+        [self.bonjourManager stopSearching];
         [(UIBarButtonItem *)sender setTitle:@"Search"];
         [self.indicatorView stopAnimating];
     }
@@ -69,7 +67,7 @@
         cell = [[DemoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"serviceCell"];
     }
     
-    NSNetService *service = [self.serviceArray objectAtIndex:indexPath.row];
+    NSNetService *service = [self.bonjourManager.foundServices objectAtIndex:indexPath.row];
     
     cell.hostnameLabel.text = service.name;
     NSArray *array = [service.type componentsSeparatedByString:@"."];
@@ -82,37 +80,39 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.serviceArray count];
+    return [self.bonjourManager.foundServices count];
 }
 
 
 #pragma mark -
-#pragma mark BSBonjourBrowseDelegate
-- (void)didFindService:(NSNetService *)service moreComing:(BOOL)moreComing {
-    NSLog(@"Find Service: %@", service);
-    [self.serviceArray addObject:service];
-    if (!moreComing) {
-        [self.tableView reloadData];
-    }
-}
-
-- (void)didRemoveService:(NSNetService *)service moreComing:(BOOL)moreComing {
-    NSLog(@"Remove Service: %@", service);
-    [self.serviceArray removeObject:service];
-    if (!moreComing) {
-        [self.tableView reloadData];
-    }
-}
+#pragma mark BSBonjourClientDelegate
 
 - (void)searchStarted {
     NSLog(@"Search Started!");
+}
+
+- (void)searchFailed:(NSError *)error {
+    NSLog(@"Search encountered an error: %@", error.localizedDescription);
 }
 
 - (void)searchStopped {
     NSLog(@"Search Stopped!");
 }
 
-- (void)searchFailed:(NSError *)error {
-    NSLog(@"Search Failed: %@", error.localizedDescription);
+- (void)updateServiceList {
+    [self.tableView reloadData];
+}
+
+- (void)connectionEstablished:(BSBonjourConnection *)connection {
+    // To-do
+}
+- (void)connectionAttemptFailed:(BSBonjourConnection *)connection {
+    // To-do
+}
+- (void)connectionTerminated:(BSBonjourConnection *)connection {
+    // To-do
+}
+- (void)receivedData:(NSData *)data {
+    // To-do
 }
 @end
