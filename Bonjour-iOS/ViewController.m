@@ -12,7 +12,7 @@
 #define kServiceName @"share_editor"
 #define kServiceProtocol @"tcp"
 
-@interface ViewController () <BSBonjourClientDelegate, UITableViewDataSource>
+@interface ViewController () <BSBonjourClientDelegate, UITableViewDataSource, UITableViewDelegate>
 
 - (IBAction)searchBtnClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -32,6 +32,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.indicatorView];
     self.tableView.rowHeight = 80.0f;
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     self.title = @"Bonjour iOS";
 }
 
@@ -83,6 +84,13 @@
     return [self.bonjourManager.foundServices count];
 }
 
+#pragma mark -
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.bonjourManager connectToServiceAtIndex:indexPath.row];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 #pragma mark -
 #pragma mark BSBonjourClientDelegate
@@ -103,16 +111,25 @@
     [self.tableView reloadData];
 }
 
+#pragma mark -
+#pragma mark - BSBonjourConnectionDelegate
+
 - (void)connectionEstablished:(BSBonjourConnection *)connection {
-    // To-do
+    NSLog(@"Connection Established...");
 }
+
 - (void)connectionAttemptFailed:(BSBonjourConnection *)connection {
-    // To-do
+    NSLog(@"Connection Failed...");
 }
+
 - (void)connectionTerminated:(BSBonjourConnection *)connection {
-    // To-do
+    NSLog(@"Connection Terminated!");
 }
+
 - (void)receivedData:(NSData *)data {
     // To-do
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message Received" message:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    [alert show];
+    [self.bonjourManager disconnectFromService];
 }
 @end
