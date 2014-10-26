@@ -10,7 +10,7 @@
 #import <BonjourSDK/BonjourSDK.h>
 
 
-@interface ViewController : UIViewController
+@interface ReceiverViewController : UIViewController
 
 @end
 

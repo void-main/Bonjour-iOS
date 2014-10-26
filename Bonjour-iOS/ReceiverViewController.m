@@ -6,23 +6,23 @@
 //  Copyright (c) 2014年 Peng Sun. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ReceiverViewController.h"
 #import "DemoTableViewCell.h"
 
 #define kServiceName @"share_editor"
 #define kServiceProtocol @"tcp"
 
-@interface ViewController () <BSBonjourClientDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ReceiverViewController () <BSBonjourClientDelegate, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 - (IBAction)searchBtnClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchBtn;
-@property (strong, nonatomic) BSBonjourClient *bonjourManager;
 @property (strong, nonatomic) UIActivityIndicatorView *indicatorView;
+@property (strong, nonatomic) BSBonjourClient *bonjourManager;
 
 @end
 
-@implementation ViewController
+@implementation ReceiverViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,13 +33,18 @@
     self.tableView.rowHeight = 80.0f;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.title = @"Bonjour iOS";
+    self.title = @"Receiver";
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//- (void)viewDidDisappear:(BOOL)animated {
+//    [self.bonjourManager disconnectFromService];
+//    self.bonjourManager = nil;
+//}
 
 - (IBAction)searchBtnClicked:(id)sender {
     if ([[(UIBarButtonItem *)sender title] isEqualToString:@"Search"]) {
@@ -127,9 +132,21 @@
 }
 
 - (void)receivedData:(NSData *)data {
-    // To-do
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message Received" message:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message Received" message:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] delegate:self cancelButtonTitle:@"Send" otherButtonTitles:@"Cancel", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];
-    [self.bonjourManager disconnectFromService];
 }
+
+#pragma mark -
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        UITextField *alertTextField = [alertView textFieldAtIndex:0];
+        NSLog(@"Send String: %@",alertTextField.text);
+        [self.bonjourManager sendData:[alertTextField.text dataUsingEncoding:NSUTF8StringEncoding]];
+        [self.bonjourManager disconnectFromService];
+    }
+}
+
 @end
